@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Products.css'
 import fetchProducts from "../../api/fetchProducts";
+import ProductCard from "../ProductCart/ProductCard";
 
 function Products() {
 
@@ -11,7 +12,7 @@ function Products() {
   // useEffect(() => {função}, [array de dependências]) se a dependência ficar vazia será executado apenas uma vez quando o componente for montado
   useEffect(() => {
     fetchProducts('iphone').then((response) => {
-    // salvando a resposta no array de products 
+    // salvando a resposta no estado, no array de products 
     setProducts(response) 
     })
   
@@ -19,7 +20,7 @@ function Products() {
 
   return(
     <section className="products container">
-      
+      <ProductCard />
     </section>
   )
 }

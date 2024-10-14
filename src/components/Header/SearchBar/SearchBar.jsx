@@ -4,7 +4,8 @@ import './SearchBar.css';
 
 function SearchBar() {
 
-  // Armazena o estado do Imput
+  // Armazena o Estado do Imput
+  // searchValue -> valor do estado. setSearchValue função que atualizar o valor do estado
   const [searchValue, setSearchValue] = useState('')
   return (
     <form className='search-bar'>
@@ -15,7 +16,7 @@ function SearchBar() {
         // Agora quem controla o valor desse input n é mais o HTML e sim o react
         value={searchValue}
         className="search__input"
-        //Evento do imput onChance(): target - é o elemento que dispara o evento(o próprio input)
+        //Evento do input onChance(): target - é o elemento que dispara o evento(o próprio input)
         // target.value é o valor que está sendo digitado no input. É salvo dentro do estado searchValue
         onChange={ ({ target }) => setSearchValue(target.value)}
         required

@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import './Header.css'
-import CartButton from "./CartButton/CartButton";
+import CartButton from "../CartButton/CartButton";
 
 function Header() {
   return(

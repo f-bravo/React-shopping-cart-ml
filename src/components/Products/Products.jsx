@@ -4,7 +4,6 @@ import fetchProducts from "../../api/fetchProducts";
 import ProductCard from "../ProductCart/ProductCard";
 
 function Products() {
-
   // Criando um estado para salvar o array de produtos
   const [products, setProducts] = useState([])
 
@@ -20,10 +19,14 @@ function Products() {
 
   return(
     <section className="products container">
-      <ProductCard />
+      
+      {
+        products.map((product) => <ProductCard key={product.id} data={product} />)
+      }
     </section>
   )
 }
 
 export default Products
+
 

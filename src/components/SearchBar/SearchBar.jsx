@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import './SearchBar.css';
+import fetchProducts from '../../api/fetchProducts';
+import AppContext from '../../context/AppContext';
 
 function SearchBar() {
 
   // Armazena o Estado do Imput
-  // searchValue -> valor do estado. setSearchValue função que atualizar o valor do estado
+  // searchValue -> valor do estado(digitado no form). setSearchValue função que atualizar o valor do estado
   const [searchValue, setSearchValue] = useState('')
+
+  // useContext:
+  const { setProducts, setLoading } = useContext(AppContext)
+
+  const handleSearch = async (event) => {
+    event.preventDefault()
+    setLoading(true)
+    const products = await fetchProducts(searchValue)
+    setProducts(products) // func q atualiza o estado dos produtos
+    setLoading(false)
+    setSearchValue('') //limpa o formulário
+  }
   return (
-    <form className='search-bar'>
+    <form className='search-bar' onSubmit={handleSearch}>
+      {name}
       <input 
         type="search" 
         placeholder="Buscar produtos" 

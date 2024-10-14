@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import './Products.css'
 import fetchProducts from "../../api/fetchProducts";
 import ProductCard from "../ProductCart/ProductCard";
 import Loading from "../Loading/Loading";
+import AppContext from "../../context/AppContext";
 
 function Products() {
-  // Criando um estado para salvar o array de produtos
-  const [products, setProducts] = useState([])
-  // Criando um estado para produtos com demora na renderização - renderiza um ícone do ReactIcons
-  const [loading, setLoading] = useState(true)
+  
+  // useContext: dos produtos
+  const { products, setProducts, loading, setLoading } = useContext(AppContext)
 
   // Sempre que a variável products sofrer uma alteração a função do useState será executada novamente
   // useEffect(() => {função}, [array de dependências]) se a dependência ficar vazia será executado apenas uma vez quando o componente for montado

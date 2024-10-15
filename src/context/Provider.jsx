@@ -9,9 +9,11 @@ const Provider = ({ children }) => {
 
   const [cartItems, setCartItems] = useState([])
 
-
   // Criando um estado para produtos com demora na renderização - renderiza um ícone do ReactIcons
   const [loading, setLoading] = useState(true)
+
+  // Contexto para abrir e fechar o carrinho com os produtos
+  const [isCartVisible, setIsCartVisible] = useState(false)
 
 
   const value = {
@@ -21,6 +23,8 @@ const Provider = ({ children }) => {
     setLoading,
     cartItems, 
     setCartItems,
+    isCartVisible, 
+    setIsCartVisible,
   }
 
   return (

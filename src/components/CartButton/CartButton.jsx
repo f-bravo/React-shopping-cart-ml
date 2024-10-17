@@ -5,7 +5,7 @@ import AppContext from "../../context/AppContext";
 
 function CartButton() {
 
-  // Contexto para somar número de itens no carrinho.
+  // Contexto para somar o número de itens no carrinho. Fica visível no carrinho a quantidade.
   const { cartItems, isCartVisible, setIsCartVisible } = useContext(AppContext)
 
   return(

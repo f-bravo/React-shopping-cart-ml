@@ -5,11 +5,15 @@ import './CartItem.css'
 import formatCurrency from '../../utils/formatCurrency'
 import AppContext from '../../context/AppContext'
 
+// Função que controla os itens do Carrinho
 function CartItem({ data }) {
 
+  // Contexto para os itens do carrinho
   const { cartItems, setCartItems } = useContext(AppContext)
+  //informação dos produtos
   const { id, thumbnail, title, price } = data
 
+  //Função que remove os itens do Carrinho
   const handleRemoveItem = () => {
     const updatedItems = cartItems.filter((item) => item.id != id)
     setCartItems(updatedItems)

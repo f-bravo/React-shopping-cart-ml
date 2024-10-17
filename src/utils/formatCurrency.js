@@ -1,3 +1,5 @@
+// Função que formata o valor para BRL
+
 const formatCurrency = (value, currency) => {
   return(
     value.toLocaleString('pt-br', {

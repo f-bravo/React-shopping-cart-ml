@@ -5,22 +5,26 @@ import propTypes from 'prop-types'
 import formatCurrency from "../../utils/formatCurrency";
 import AppContext from "../../context/AppContext";
 
+// Função do componente produto
 function ProductCard({ data }) {
+  // dados dos produtos
   const { title, thumbnail, price } = data
 
+  //Atualiza os itens do carrinho
   const { cartItems, setCartItems } = useContext(AppContext)
 
+  // Função que pega as informações do produto passa para o array de itens do carrinho
   const handleAddCart = () => {
     /*const updateCartItems = cartItems
     updateCartItems.push(data)
-    setCartItems(updateCartItems) a linha de baixo substitui essa lógica de 3 linhas */
+    setCartItems(updateCartItems) --> a linha de baixo substitui essa lógica de 3 linhas */
     setCartItems([ ...cartItems, data])
   }
 
   return(
     <section className="product-card">
       <img
-        // regex para melhorar a imagem da api. Retira a letra i e coloca o W
+        // Regex para melhorar a qualidade da imagem da api. Retira a letra i e coloca o W
         src={thumbnail.replace(/\w\.jpg/gi, "W.jpg")} 
         alt="product" 
         className="card__image"/>

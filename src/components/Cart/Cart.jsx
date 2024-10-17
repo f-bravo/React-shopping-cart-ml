@@ -4,9 +4,12 @@ import CartItem from '../CartItem/CartItem'
 import AppContext from '../../context/AppContext'
 import formatCurrency from '../../utils/formatCurrency'
 
+// função que controla o Carrinho de compras. Ela recebe os parâmetros vindo da contextAPI
 function Cart() {
+  // Pega o array dos produtos do carrinho e add ou remove a classe para o carrinho aparecer e desaparecer
   const  { cartItems, isCartVisible} = useContext(AppContext)
-
+  
+  // Soma os itens do carrinho
   const totalPrice = cartItems.reduce((acc, item) => {
     return item.price + acc
   }, 0)

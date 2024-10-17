@@ -7,14 +7,16 @@ import AppContext from "../../context/AppContext";
 
 function Products() {
   
-  // useContext: dos produtos
+  // useContext: atualiza o estado dos produtos e do carregamento. 
+  // Controla o ícone de carregamento
   const { products, setProducts, loading, setLoading } = useContext(AppContext)
 
   // Sempre que a variável products sofrer uma alteração a função do useState será executada novamente
   // useEffect(() => {função}, [array de dependências]) se a dependência ficar vazia será executado apenas uma vez quando o componente for montado
   useEffect(() => {
+    // A página inicial do projeto carrega buscando por Iphone.
     fetchProducts('iphone').then((response) => {
-    // salvando a resposta no estado, no array de products 
+    // salvando a resposta no estado no array de products 
     setProducts(response) 
     setLoading(false)
     })

@@ -6,13 +6,14 @@ import AppContext from '../../context/AppContext';
 
 function SearchBar() {
 
-  // Armazena o Estado do Imput
+  // Armazena o Estado do Input
   // searchValue -> valor do estado(digitado no form). setSearchValue função que atualizar o valor do estado
   const [searchValue, setSearchValue] = useState('')
 
-  // useContext:
+  // useContext: atualiza o estado dos produtos e o ícone de carregamento. Vem do Contexto/Provider
   const { setProducts, setLoading } = useContext(AppContext)
 
+  // Função que busca os produtos. Ela é executada no momento que o formulário é enviado clicando no botão ou enter
   const handleSearch = async (event) => {
     event.preventDefault()
     setLoading(true)
@@ -23,7 +24,7 @@ function SearchBar() {
   }
   return (
     <form className='search-bar' onSubmit={handleSearch}>
-      {name}
+      
       <input 
         type="search" 
         placeholder="Buscar produtos" 
